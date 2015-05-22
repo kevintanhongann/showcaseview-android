@@ -10,6 +10,7 @@
         </activity>
         
         <activity android:name="co.naughtyspirit.sample.CustomThemeShowcase"/>
+        <activity android:name=".CustomThemeWithBtnBackgroundDrawable" />
     </application>
 
 </manifest>

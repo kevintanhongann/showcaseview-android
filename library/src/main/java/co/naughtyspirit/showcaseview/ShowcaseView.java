@@ -147,9 +147,9 @@ public class ShowcaseView extends RelativeLayout implements ShowcaseViewAPI {
                 ctx.getResources().getDimension(R.dimen.showcase_btn_text));
         int btnTextColor = styled.getColor(R.styleable.ShowcaseView_showcase_btn_text_color,
                 ctx.getResources().getColor(R.color.showcase_btn_text));
-        int btnBackground = styled.getColor(R.styleable.ShowcaseView_showcase_btn_background,
+        int btnBackground = styled.getResourceId(R.styleable.ShowcaseView_showcase_btn_background, 0);
+        int btnColor = styled.getColor(R.styleable.ShowcaseView_showcase_btn_bg_color,
                 ctx.getResources().getColor(R.color.showcase_btn_background));
-
         styled.recycle();
         
         setBackgroundColor(showcaseBackground);
@@ -157,12 +157,19 @@ public class ShowcaseView extends RelativeLayout implements ShowcaseViewAPI {
 
         descriptionView.setTextColor(descTextColor);
         descriptionView.setTextSize(PositionsUtil.floatToSP(ctx, descTextSize));
-        descriptionView.setText(TextUtils.isEmpty(descriptionView.getText().toString()) ? ctx.getString(R.string.showcase_description) : descriptionView.getText().toString());
+        descriptionView.setText(TextUtils.isEmpty(descriptionView.getText().toString()) ? ctx
+                .getString(R.string.showcase_description) : descriptionView.getText().toString());
 
         buttonView.setTextColor(btnTextColor);
         buttonView.setTextSize(PositionsUtil.floatToSP(ctx, btnTextSize));
-        buttonView.setText(TextUtils.isEmpty(buttonView.getText().toString()) ? ctx.getString(R.string.showcase_button) : buttonView.getText().toString());
-        buttonView.setBackgroundColor(btnBackground);
+        buttonView.setText(TextUtils.isEmpty(buttonView.getText().toString()) ? ctx
+                .getString(R.string.showcase_button) : buttonView.getText().toString());
+
+        if (btnBackground != 0) {
+            buttonView.setBackgroundResource(btnBackground);
+        }else{
+            buttonView.setBackgroundColor(btnColor);
+        }
 
         if (invalidate) {
             invalidate();

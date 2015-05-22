@@ -22,6 +22,8 @@ package co.naughtyspirit.sample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,12 +35,11 @@ import co.naughtyspirit.showcaseview.targets.TargetView.ShowcaseType;
 import co.naughtyspirit.showcaseview.utils.PositionsUtil.ItemPosition;
 
 /**
- * Created by Seishin <atanas@naughtyspirit.co>
- * on 2/10/15.
+ * Created by Seishin <atanas@naughtyspirit.co> on 2/10/15.
  *
  * NaughtySpirit 2015
  */
-public class MainActivity extends ActionBarActivity implements OnClickListener{
+public class MainActivity extends ActionBarActivity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,29 @@ public class MainActivity extends ActionBarActivity implements OnClickListener{
         new ShowcaseView.Builder(this, MainActivity.this.getClass().getName())
                 .setTarget(target)
                 .setOneShot(false)
-                .setDescription("This is the super-duper-mega-cool app! Click on this button to start it now!",
+                .setDescription(
+                        "This is the super-duper-mega-cool app! Click on this button to start it now!",
                         ItemPosition.TOP_CENTER)
                 .setButton(ItemPosition.BOTTOM_CENTER)
                 .build();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main
+                , menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_showcase_background:
+                Intent showcaseIntent = new Intent(this, CustomThemeWithBtnBackgroundDrawable.class);
+                startActivity(showcaseIntent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

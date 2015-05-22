@@ -20,7 +20,8 @@
         <attr name="showcase_btn_text_color" format="color|reference"/>
         <attr name="showcase_btn_text_size" format="dimension|reference"/>
         <attr name="showcase_btn_text" format="string|reference"/>
-        <attr name="showcase_btn_background" format="color|reference"/>
+        <attr name="showcase_btn_background" format="reference"/>
+        <attr name="showcase_btn_bg_color" format="color|reference" />
         <attr name="showcase_btn_margin" format="dimension|reference"/>
     </declare-styleable>
 </resources>

@@ -21,6 +21,7 @@ package co.naughtyspirit.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import co.naughtyspirit.showcaseview.ShowcaseView;
@@ -33,7 +34,7 @@ import co.naughtyspirit.showcaseview.utils.PositionsUtil;
  * on 2/18/15.
  * NaughtySpirit 2015
  */
-public class CustomThemeShowcase extends ActionBarActivity {
+public class CustomThemeShowcase extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
